@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:movie/view_model/browse.dart';
+import 'package:movie/views/categoryMovies.dart';
 import 'package:provider/provider.dart';
-
 import '../../myThemeData.dart';
-import '../../screens/moviesCategory.dart';
 
 class Browse extends StatelessWidget {
-  const Browse({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -27,13 +24,12 @@ class Browse extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => moviesCategory(
+                                builder: (context) => CategoryMovies(
                                     browseProvider.categories![index].name!)));
                       },
                       child: Padding(
                           padding: const EdgeInsets.only(left: 25, right: 25),
                           child: Container(
-                            //alignment: Alignment.center,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(35),
                                 image: DecorationImage(

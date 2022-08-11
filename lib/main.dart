@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:movie/myThemeData.dart';
 import 'package:movie/screens/home.dart';
-import 'package:movie/screens/search.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

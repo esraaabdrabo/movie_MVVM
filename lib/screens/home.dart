@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movie/dataModel/response.dart';
 import 'package:movie/myThemeData.dart';
-import 'package:movie/screens/browse.dart';
-
 import 'package:movie/screens/watchList.dart';
 import 'package:movie/views/HomeFragments/browse.dart';
 ////////////////////////////////////////////////////////
-
 import '../views/HomeFragments/homeBody.dart';
 import '../views/HomeFragments/search.dart';
 
@@ -64,61 +60,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-/*
-class HomeBody extends StatefulWidget {
-  @override
-  State<HomeBody> createState() => _HomeBodyState();
-}
-
-class _HomeBodyState extends State<HomeBody> {
-  late CollectionReference watchListRes;
-
-  Future<List<movie>?>? futuerPopularList;
-
-  Future<List<movie>?>? futuerTopRatedList;
-  @override
-  /*  initState() {
-    super.initState();
-    futuerPopularList = getPopular();
-
-    futuerTopRatedList = getTopRated();
-    watchListRes = FirebaseFirestore.instance
-        .collection('watchList')
-        .withConverter<movie>(
-            fromFirestore: (Snapshot, _) => movie.fromJson(Snapshot.data()!),
-            toFirestore: (movie, _) => movie.toJson());
-  }
-
- Future<List<movie>?> getPopular() async {
-    return PopularSV.getMovieList(
-        'https://api.themoviedb.org/3/movie/popular?api_key=36dac39aff2bc256201415d1f2d33cdf');
-  }
-*/
-  /* Future<List<movie>?> getTopRated() async {
-    return PopularSV.getMovieList(
-        'https://api.themoviedb.org/3/movie/top_rated?api_key=36dac39aff2bc256201415d1f2d33cdf');
-  }
-*/
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Container(
-            height: MediaQuery.of(context).size.height * .4,
-            child: ourFutureBuilder([], 'POPULAR', false),
-          ),
-          Container(
-            height: MediaQuery.of(context).size.height * .03,
-          ),
-          Container(
-              height: MediaQuery.of(context).size.height * .5,
-              child: ourFutureBuilder([], 'TOP RATED', true)),
-          Container(
-            height: MediaQuery.of(context).size.height * .03,
-          ),
-        ],
-      ),
-    );
-  }
-}
-*/

@@ -1,7 +1,5 @@
 import 'dart:convert';
 import 'package:movie/dataModel/category.dart';
-
-import '../dataModel/response.dart';
 import 'package:http/http.dart' as http;
 
 class BrowseSV {

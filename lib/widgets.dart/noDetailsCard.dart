@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:movie/dataModel/response.dart';
 import 'package:movie/myThemeData.dart';
-import 'package:movie/screens/movieDetails.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:movie/views/movieDetailsa.dart';
 
 class noDetailsCard extends StatefulWidget {
   bool? needpadding = true; //false in details card call
@@ -36,7 +36,7 @@ class _noDetailsCardState extends State<noDetailsCard> {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => movieDetails(
+                builder: (context) => MovieDetails(
                       widget.Movie,
                     )))
       },

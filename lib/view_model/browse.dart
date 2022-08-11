@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:movie/services/browse.dart';
-import 'package:movie/services/search.dart';
 import '../dataModel/category.dart';
 
 class BrowseVM extends ChangeNotifier {

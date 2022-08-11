@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:movie/dataModel/response.dart';
 import 'package:movie/myThemeData.dart';
-import 'package:movie/screens/movieDetails.dart';
+import 'package:movie/views/movieDetailsa.dart';
 import 'package:movie/widgets.dart/noDetailsCard.dart';
 
 class rowDetails extends StatefulWidget {
@@ -29,7 +29,7 @@ class _rowDetailsState extends State<rowDetails> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => movieDetails(
+                              builder: (context) => MovieDetails(
                                     widget.movieList![index],
                                   )));
                     },
