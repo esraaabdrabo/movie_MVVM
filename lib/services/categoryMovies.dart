@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:movie/dataModel/response.dart';
+import 'package:movie/Model/response.dart';
 
 class CategoryMoviesSV {
   static getCategoryList(String categoryName) async {

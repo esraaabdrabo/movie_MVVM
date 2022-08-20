@@ -37,52 +37,7 @@ class WatchList extends StatelessWidget {
                       color: MyThemeData.text.withAlpha(150),
                       fontSize: screenWidth * .04),
                 ),
-                SizedBox(
-                  height: screenHeight * .02,
-                ),
-                ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(MyThemeData.accent)),
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) => HomeBody())));
-                    },
-                    child: Text(
-                      'See Popular and Top Rated.',
-                      style: TextStyle(
-                          color: MyThemeData.text.withAlpha(80),
-                          fontSize: screenWidth * .034),
-                    )),
-                SizedBox(
-                  height: screenHeight * .01,
-                ),
-                SizedBox(
-                  height: screenHeight * .02,
-                  child: Text(
-                    'OR',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: MyThemeData.text, fontSize: screenWidth * .03),
-                  ),
-                ),
-                ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(MyThemeData.accent)),
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: ((context) => Browse())));
-                    },
-                    child: Text(
-                      'See Movie\'s Categories.',
-                      style: TextStyle(
-                          color: MyThemeData.text.withAlpha(80),
-                          fontSize: screenWidth * .034),
-                    ))
-              ],
+             ],
             ),
           )
         : watchListProvider.isLoading

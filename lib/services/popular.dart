@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../dataModel/response.dart';
+import '../Model/response.dart';
 
 class PopularSV {
   static getPopularMovieList() async {

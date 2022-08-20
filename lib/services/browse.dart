@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:movie/dataModel/category.dart';
+import 'package:movie/Model/category.dart';
 import 'package:http/http.dart' as http;
 
 class BrowseSV {
@@ -10,8 +10,8 @@ class BrowseSV {
     var response = await http.get(Uri.parse(categoriesURL));
 
     if (response.statusCode == 200) {
-      categoryResponse categoriesList =
-          categoryResponse.fromJson(jsonDecode(response.body));
+      CategoryResponse categoriesList =
+          CategoryResponse.fromJson(jsonDecode(response.body));
 
       return categoriesList.genres;
     } else {

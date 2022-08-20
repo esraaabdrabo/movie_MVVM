@@ -1,49 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:movie/dataModel/response.dart';
+import 'package:movie/Model/response.dart';
 import 'package:movie/myThemeData.dart';
 import 'package:movie/widgets.dart/noDetailsCard.dart';
 
-class detailsCard extends StatefulWidget {
+class DetailsCard extends StatefulWidget {
   int id;
   String year, imgPath, movieName;
   double rate;
-  movie Movie;
+  Movie movie;
 
-  detailsCard(
-      this.id, this.year, this.imgPath, this.Movie, this.movieName, this.rate);
+  DetailsCard(
+      this.id, this.year, this.imgPath, this.movie, this.movieName, this.rate);
   @override
-  _detailsCardState createState() => _detailsCardState();
+  _DetailsCardState createState() => _DetailsCardState();
 }
 
-class _detailsCardState extends State<detailsCard> {
+class _DetailsCardState extends State<DetailsCard> {
   bool needPaddingDetailsCard = false;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      //  height: MediaQuery.of(context).size.height * .2,
       child: InkWell(
-        onTap: () {
-          print('click details');
-        },
+        onTap: () {},
         child: Padding(
           padding: EdgeInsets.only(
               right: MediaQuery.of(context).size.width * .05,
               left: MediaQuery.of(context).size.width * .05),
           child: Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                color: MyThemeData.accent,
-                boxShadow: [
-                  BoxShadow(color: MyThemeData.detText, blurRadius: 5)
-                ]),
-            width: MediaQuery.of(context).size.width * .4,
+              borderRadius: BorderRadius.circular(5),
+              color: MyThemeData.accent,
+            ),
+            width: MediaQuery.of(context).size.width * .5,
             child: Column(
               children: [
                 Container(
                   child: Column(
                     children: [
                       noDetailsCard(
-                        widget.Movie,
+                        widget.movie,
                         needPaddingDetailsCard,
                       ),
                       Padding(
@@ -57,7 +52,7 @@ class _detailsCardState extends State<detailsCard> {
                               children: [
                                 Icon(
                                   Icons.star,
-                                  color: MyThemeData.text,
+                                  color: MyThemeData.clicked,
                                   size: 15,
                                 ),
                                 Padding(padding: EdgeInsets.only(left: 3.0)),
@@ -72,7 +67,8 @@ class _detailsCardState extends State<detailsCard> {
                             //////////////moviename////////////////////
 
                             Text(
-                              '${widget.movieName}',
+                              widget.movieName,
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                   color: MyThemeData.detText,
                                   letterSpacing: 2,

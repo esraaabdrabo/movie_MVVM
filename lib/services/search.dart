@@ -1,5 +1,5 @@
 import 'dart:convert';
-import '../dataModel/response.dart';
+import '../Model/response.dart';
 import 'package:http/http.dart' as http;
 
 class SearchSV {

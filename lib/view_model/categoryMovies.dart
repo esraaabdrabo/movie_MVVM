@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:movie/dataModel/response.dart';
+import 'package:movie/Model/response.dart';
 import 'package:movie/services/categoryMovies.dart';
 
 class CategoryMoviesVM extends ChangeNotifier {
-  List<movie>? categoryMovies = [];
+  List<Movie>? categoryMovies = [];
   bool isLoading = false;
   String errorMess = '';
 
@@ -19,7 +19,7 @@ class CategoryMoviesVM extends ChangeNotifier {
     changeIsLoading(true);
 
     var res = await CategoryMoviesSV.getCategoryList(name);
-    if (res is List<movie>?) {
+    if (res is List<Movie>?) {
       categoryMovies = res;
     } else {
       errorMess = res;

@@ -1,10 +1,10 @@
 import 'package:movie/services/movieDetails.dart';
-import '../dataModel/response.dart';
+import '../Model/response.dart';
 import 'package:flutter/material.dart';
-import 'package:movie/dataModel/response.dart';
+import 'package:movie/Model/response.dart';
 
 class MoviesDetailsVM extends ChangeNotifier {
-  List<movie>? similar = [];
+  List<Movie>? similar = [];
 
   bool isLoading = false;
 
@@ -23,7 +23,7 @@ class MoviesDetailsVM extends ChangeNotifier {
     changeIsLoading(true);
 
     var res = await MovieDetailsSV.getSimilar(id);
-    if (res is List<movie>?) {
+    if (res is List<Movie>?) {
       similar = res;
     } else {
       errorMess = res;
