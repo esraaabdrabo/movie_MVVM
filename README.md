@@ -1,17 +1,10 @@
 Important Packages
+http , provider , firebase_core
 
 API
 https://developers.themoviedb.org/3/getting-started/introduction
 
 ![Screenshot_2022-08-15-17-10-08-236_com example movie](https://user-images.githubusercontent.com/91227030/186210662-c11e8af8-be56-4972-8ecd-5dfdd5e2bb91.jpg)
-
-
-
-
-
-
-
-
 ![Screenshot_2022-08-15-17-10-17-937_com example movie](https://user-images.githubusercontent.com/91227030/186210780-2816dbf1-2a5e-49e9-8547-868e3b42efad.jpg)
 ![Screenshot_2022-08-15-17-10-26-193_com example movie](https://user-images.githubusercontent.com/91227030/186210809-29324ff5-2e6a-4f9c-9978-2a5f72a1572f.jpg)
 ![Screenshot_2022-08-15-17-10-32-852_com example movie](https://user-images.githubusercontent.com/91227030/186210833-4da93e07-d941-4ba6-8577-43a5a9b53c81.jpg)
