@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:movie/services/constants.dart';
 import '../Model/response.dart';
 
 class WatchListSV {
@@ -8,7 +9,7 @@ class WatchListSV {
   CollectionReference<Movie>? watchListRef;
   void getRef() {
     watchListRef = FirebaseFirestore.instance
-        .collection('watchList')
+        .collection(SVconstants.watchListCollectionKey)
         .withConverter<Movie>(
             fromFirestore: (snapshot, _) => Movie.fromJson(snapshot.data()!),
             toFirestore: (movie, _) => movie.toJson());

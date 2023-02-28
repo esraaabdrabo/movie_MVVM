@@ -1,7 +1,6 @@
 import 'package:movie/services/movieDetails.dart';
 import '../Model/response.dart';
 import 'package:flutter/material.dart';
-import 'package:movie/Model/response.dart';
 
 class MoviesDetailsVM extends ChangeNotifier {
   List<Movie>? similar = [];

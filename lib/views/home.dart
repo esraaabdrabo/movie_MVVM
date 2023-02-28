@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie/myThemeData.dart';
 import 'package:movie/views/HomeFragments/browse.dart';
-import 'package:movie/views/watchList.dart';
+import 'package:movie/views/HomeFragments/watchList.dart';
 import 'HomeFragments/homeBody.dart';
 import 'HomeFragments/search.dart';
 
@@ -17,21 +17,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: appBar(),
         backgroundColor: MyThemeData.primary,
         body: getScreen(),
         bottomNavigationBar: navTheme());
-  }
-
-  AppBar appBar() {
-    return AppBar(
-      title: Text(
-        'MOV',
-        style: TextStyle(letterSpacing: 1, color: Colors.white),
-      ),
-      centerTitle: true,
-      backgroundColor: MyThemeData.accent,
-    );
   }
 
   getScreen() {
@@ -43,7 +31,7 @@ class _HomeState extends State<Home> {
                 ? pages[3]
                 : selectedIndex == 2
                     ? pages[2]
-                    : Container();
+                    : SizedBox();
   }
 
   List<BottomNavigationBarItem> navItems = [

@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:movie/services/constants.dart';
 import '../Model/response.dart';
 
 class MovieDetailsSV {
   static getSimilar(int id) async {
     String uRL =
-        'https://api.themoviedb.org/3/movie/$id/similar?api_key=36dac39aff2bc256201415d1f2d33cdf';
+        '${SVconstants.baseUrl}movie/$id/similar?${SVconstants.apiKey}';
     var response = await http.get(Uri.parse(uRL));
 
     if (response.statusCode == 200) {

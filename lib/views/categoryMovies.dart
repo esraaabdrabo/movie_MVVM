@@ -4,8 +4,8 @@ import 'package:movie/view_model/categoryMovies.dart';
 import 'package:provider/provider.dart';
 
 import '../myThemeData.dart';
-import '../widgets.dart/rowDetails.dart';
-import '../widgets.dart/widgets.dart';
+import '../widgets.dart/search_results.dart';
+import '../widgets.dart/loading.dart';
 
 // ignore: must_be_immutable
 class CategoryMovies extends StatelessWidget {
@@ -14,9 +14,6 @@ class CategoryMovies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
         appBar: AppBar(
           title: Text('$name'.toUpperCase()),
@@ -29,8 +26,8 @@ class CategoryMovies extends StatelessWidget {
               CategoryMoviesVM categoryMoviesProvider = Provider.of(context);
               List<Movie>? movies = categoryMoviesProvider.categoryMovies;
               return categoryMoviesProvider.isLoading
-                  ? Widgets.loading(screenHeight, screenWidth)
-                  : rowDetails(movies);
+                  ? Loading()
+                  : SearchResults(movies);
             }));
   }
 }

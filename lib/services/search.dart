@@ -1,11 +1,12 @@
 import 'dart:convert';
+import 'package:movie/services/constants.dart';
+
 import '../Model/response.dart';
 import 'package:http/http.dart' as http;
 
 class SearchSV {
   static getSearchedMovie(String name) async {
-    String searchURL =
-        'https://api.themoviedb.org/3/search/movie?api_key=36dac39aff2bc256201415d1f2d33cdf&query=$name';
+    String searchURL = '${SVconstants.searchUrl}$name';
 
     var response = await http.get(Uri.parse(searchURL));
 

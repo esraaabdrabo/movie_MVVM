@@ -1,32 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:movie/assets/constants/img.dart';
 import 'package:movie/myThemeData.dart';
 import 'package:movie/view_model/seacrh.dart';
-import 'package:movie/widgets.dart/widgets.dart';
+import 'package:movie/widgets.dart/loading.dart';
 import 'package:provider/provider.dart';
-import '../../widgets.dart/rowDetails.dart';
+import '../../widgets.dart/search_results.dart';
+import '../animation/app_bar.dart';
 
 class Search extends StatelessWidget {
   const Search({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return ChangeNotifierProvider(
         create: (context) => SearchVM(),
         builder: (context, child) {
-          double screenHeight = MediaQuery.of(context).size.height;
-          double screenWidth = MediaQuery.of(context).size.width;
           SearchVM searchProvider = Provider.of(context);
           return searchProvider.isLoading
-              ? Widgets.loading(screenHeight, screenWidth)
+              ? Loading()
               : SingleChildScrollView(
-                  child: Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: .05 * screenHeight),
                     child: Column(
                       children: [
+                        AnimatedAppBar(end: screenHeight * .1),
+
                         //search field
                         Padding(
                           padding: const EdgeInsets.all(12.0),
                           child: Column(
-                            /////////search bar////////////
+                            //search bar//
                             children: [
                               TextField(
                                 onSubmitted: (value) {
@@ -52,22 +57,12 @@ class Search extends StatelessWidget {
                           ),
                         ),
                         !searchProvider.isSearchUsed
-                            ? Container()
+                            ? const SizedBox()
                             : searchProvider.searchedMovies!.length == 0
                                 ? Image.asset(
-                                    'images/searchNotFound.jpg',
-                                    //     width: MediaQuery.of(context).size.height * .25,
+                                    ConstantsIMG.notFoundPath,
                                   )
-                                : SizedBox(
-                                    height: MediaQuery.of(context).size.height,
-                                    child: ListView.builder(
-                                      itemBuilder: (context, index) {
-                                        return rowDetails(
-                                            searchProvider.searchedMovies);
-                                      },
-                                      itemCount: 1,
-                                    ),
-                                  )
+                                : SearchResults(searchProvider.searchedMovies)
                       ],
                     ),
                   ),
