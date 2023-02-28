@@ -10,7 +10,7 @@ import '../views/animation/offset.dart';
 
 class SearchResults extends StatefulWidget {
   final List<Movie>? movieList;
-  bool isScrollable = true;
+  final bool isScrollable = true;
   SearchResults(this.movieList);
   @override
   _SearchResultsState createState() => _SearchResultsState();
