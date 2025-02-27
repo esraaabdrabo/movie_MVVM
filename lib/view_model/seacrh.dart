@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:movie/Model/response.dart';
-import 'package:movie/services/search.dart';
+import 'package:mov/Model/response.dart';
+import 'package:mov/services/search.dart';
 
 class SearchVM extends ChangeNotifier {
   List<Movie>? searchedMovies = [];

@@ -1,29 +1,25 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:movie/Model/category.dart';
-import 'package:movie/Model/video.dart';
+import 'package:mov/Model/category.dart';
+import 'package:mov/Model/video.dart';
 
 class PoopularSV {
-  static Future<List<Category>?> getCategoryList(String link) async {
-    var response = await http.get(Uri.parse(link));
+  static Future<List<Category>?> getCategoryList(String url) async {
+    final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
-      print('in 200 $link');
-      var categoryList = CategoryResponse.fromJson(jsonDecode(response.body));
+      final categoryList = CategoryResponse.fromJson(jsonDecode(response.body));
       return categoryList.genres;
     }
     throw Exception('failed from get category ${response.statusCode}');
   }
 
-  static Future<String?> getMovieVideo(String link) async {
-    var response = await http.get(Uri.parse(link));
+  static Future<String?> getMovieVideo(String url) async {
+    final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
-      print('in 200 $link');
-      var resultList = VideoResponse.fromJson(jsonDecode(response.body));
-      String videoLink =
-          'https://www.youtube.com/watch?v=${resultList.results![0].key}';
-      return videoLink;
+      final resultList = VideoResponse.fromJson(jsonDecode(response.body));
+      return 'https://www.youtube.com/watch?v=${resultList.results![0].key}';
     } else {
-      throw Exception('failed from get $link ${response.statusCode}');
+      throw Exception('failed from get $url ${response.statusCode}');
     }
   }
 }

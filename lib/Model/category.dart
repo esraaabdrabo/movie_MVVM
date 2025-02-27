@@ -1,38 +1,41 @@
 class CategoryResponse {
-  List<Category>? genres;
+  final List<Category>? genres;
 
-  CategoryResponse({this.genres});
+  const CategoryResponse({this.genres});
 
-  CategoryResponse.fromJson(Map<String, dynamic> json) {
-    if (json["genres"] is List)
-      this.genres = json["genres"] == null
-          ? null
-          : (json["genres"] as List).map((e) => Category.fromJson(e)).toList();
+  factory CategoryResponse.fromJson(Map<String, dynamic> json) {
+    return CategoryResponse(
+      genres:
+          json["genres"] == null
+              ? null
+              : (json["genres"] as List)
+                  .map((e) => Category.fromJson(e))
+                  .toList(),
+    );
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.genres != null)
-      data["genres"] = this.genres!.map((e) => e.toJson()).toList();
+    final Map<String, dynamic> data = {};
+    if (genres != null)
+      data["genres"] = genres!.map((e) => e.toJson()).toList();
     return data;
   }
 }
 
 class Category {
-  int? id;
-  String? name;
+  final int? id;
+  final String? name;
 
-  Category({this.id, this.name});
+  const Category({this.id, this.name});
 
-  Category.fromJson(Map<String, dynamic> json) {
-    if (json["id"] is int) this.id = json["id"];
-    if (json["name"] is String) this.name = json["name"];
+  factory Category.fromJson(Map<String, dynamic> json) {
+    return Category(id: json["id"], name: json["name"]);
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data["id"] = this.id;
-    data["name"] = this.name;
+    final Map<String, dynamic> data = {};
+    data["id"] = id;
+    data["name"] = name;
     return data;
   }
 }

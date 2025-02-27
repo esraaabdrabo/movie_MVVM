@@ -2,13 +2,13 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movie/Model/response.dart';
-import 'package:movie/widgets.dart/movie_details.dart/not_popular_cover.dart';
+import 'package:mov/Model/response.dart';
+import 'package:mov/widgets.dart/movie_details/not_popular_cover.dart';
 import '../../myThemeData.dart';
 
 class MostPopularNow extends StatelessWidget {
   final Movie movie;
-  MostPopularNow({required this.movie, Key? key}) : super(key: key);
+  const MostPopularNow({required this.movie, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,31 +29,37 @@ class MostPopularNow extends StatelessWidget {
                 alignment: Alignment.center,
                 padding: EdgeInsets.symmetric(horizontal: screenWidth * .05),
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [
-                    MyThemeData.clicked.withAlpha(150),
-                    MyThemeData.accent.withAlpha(110),
-                    Color.fromARGB(120, 255, 255, 255)
-                  ]),
+                  gradient: LinearGradient(
+                    colors: [
+                      MyThemeData.golden.withAlpha(150),
+                      MyThemeData.accent.withAlpha(110),
+                      Color.fromARGB(120, 255, 255, 255),
+                    ],
+                  ),
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(screenWidth * .05),
                   ),
                 ),
                 child: Row(
                   children: [
-                    Text('most popular now ',
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        textAlign: TextAlign.center,
-                        style: MyThemeData.midTitleTS(w: screenWidth)),
-                    Icon(Icons.star_half_rounded,
-                        size: screenWidth * .08,
-                        color: Color.fromARGB(255, 247, 200, 72))
+                    Text(
+                      'most popular now ',
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      textAlign: TextAlign.center,
+                      style: TextStyles.midTitle(screenWidth),
+                    ),
+                    Icon(
+                      Icons.star_half_rounded,
+                      size: screenWidth * .08,
+                      color: Color.fromARGB(255, 247, 200, 72),
+                    ),
                   ],
                 ),
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }

@@ -1,7 +1,14 @@
+<<<<<<< HEAD
+import Flutter
+import UIKit
+
+@main
+=======
 import UIKit
 import Flutter
 
 @UIApplicationMain
+>>>>>>> origin/master
 @objc class AppDelegate: FlutterAppDelegate {
   override func application(
     _ application: UIApplication,

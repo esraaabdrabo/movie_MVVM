@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:movie/services/browse.dart';
+import 'package:mov/services/browse.dart';
 import '../Model/category.dart';
 
 class BrowseVM extends ChangeNotifier {
@@ -10,15 +10,15 @@ class BrowseVM extends ChangeNotifier {
   BrowseVM() {
     getCategories();
   }
-  changeIsLoading(bool value) {
+  void changeIsLoading(bool value) {
     isLoading = value;
     notifyListeners();
   }
 
-  getCategories() async {
+  Future<void> getCategories() async {
     changeIsLoading(true);
 
-    var res = await BrowseSV.getCategories();
+    final res = await BrowseSV.getCategories();
     if (res is List<Category>?) {
       categories = res;
     } else {

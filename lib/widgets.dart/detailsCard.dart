@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movie/Model/response.dart';
-import 'package:movie/myThemeData.dart';
-import 'package:movie/widgets.dart/noDetailsCard.dart';
+import 'package:mov/Model/response.dart';
+import 'package:mov/myThemeData.dart';
+import 'package:mov/widgets.dart/noDetailsCard.dart';
 
 class DetailsCard extends StatefulWidget {
   int id;
@@ -10,7 +10,14 @@ class DetailsCard extends StatefulWidget {
   Movie movie;
 
   DetailsCard(
-      this.id, this.year, this.imgPath, this.movie, this.movieName, this.rate);
+    this.id,
+    this.year,
+    this.imgPath,
+    this.movie,
+    this.movieName,
+    this.rate, {
+    super.key,
+  });
   @override
   _DetailsCardState createState() => _DetailsCardState();
 }
@@ -23,8 +30,10 @@ class _DetailsCardState extends State<DetailsCard> {
     return InkWell(
       onTap: () {},
       child: Container(
-        margin:
-            EdgeInsets.only(right: screenWidth * .05, left: screenWidth * .05),
+        margin: EdgeInsets.only(
+          right: screenWidth * .05,
+          left: screenWidth * .05,
+        ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
           color: MyThemeData.accent,
@@ -32,51 +41,48 @@ class _DetailsCardState extends State<DetailsCard> {
         width: screenWidth * .5,
         child: Column(
           children: [
-            NoDetailsCard(
-              widget.movie,
-              needPaddingDetailsCard,
-            ),
+            NoDetailsCard(widget.movie, needPaddingDetailsCard),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   //rating//
-
                   Row(
                     children: [
-                      Icon(
-                        Icons.star,
-                        color: MyThemeData.clicked,
-                        size: 15,
-                      ),
+                      Icon(Icons.star, color: MyThemeData.golden, size: 15),
                       Padding(padding: EdgeInsets.only(left: 3.0)),
                       Text(
                         '${widget.rate.ceilToDouble()}',
-                        style: TextStyle(color: MyThemeData.text, fontSize: 12),
+                        style: TextStyle(
+                          color: MyThemeData.white60,
+                          fontSize: 12,
+                        ),
                       ),
                     ],
                   ),
                   Padding(padding: EdgeInsets.all(5)),
-                  //moviename//
 
+                  //moviename//
                   Text(
                     widget.movieName,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                        color: MyThemeData.detText,
-                        letterSpacing: 2,
-                        fontSize: 10),
+                      color: MyThemeData.mediumGray,
+                      letterSpacing: 2,
+                      fontSize: 10,
+                    ),
                   ),
                   Padding(padding: EdgeInsets.all(5)),
-                  //year//
 
+                  //year//
                   Text(
-                    '${widget.year}',
+                    widget.year,
                     style: TextStyle(
-                        color: MyThemeData.detText,
-                        letterSpacing: 2,
-                        fontSize: 10),
+                      color: MyThemeData.mediumGray,
+                      letterSpacing: 2,
+                      fontSize: 10,
+                    ),
                   ),
                 ],
               ),

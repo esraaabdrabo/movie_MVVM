@@ -1,83 +1,82 @@
 class VideoResponse {
-late  int id;
-  List<Results>? results;
-  bool? success;
-  int? statusCode;
-  String? statusMessage;
+  final int id;
+  final List<Results>? results;
 
-  VideoResponse(
-      {required this.id,
-      this.results,
-      this.statusCode,
-      this.statusMessage,
-      this.success});
+  const VideoResponse({required this.id, this.results});
 
-  VideoResponse.fromJson(Map<String, dynamic> json) {
-    if (json["id"] is int) this.id = json["id"];
-    if (json["results"] is List)
-      this.results = json["results"] == null
-          ? null
-          : (json["results"] as List).map((e) => Results.fromJson(e)).toList();
+  factory VideoResponse.fromJson(Map<String, dynamic> json) {
+    return VideoResponse(
+      id: json['id'],
+      results:
+          json["results"] == null
+              ? null
+              : (json["results"] as List)
+                  .map((e) => Results.fromJson(e))
+                  .toList(),
+    );
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data["id"] = this.id;
-    if (this.results != null)
-      data["results"] = this.results!.map((e) => e.toJson()).toList();
+    final Map<String, dynamic> data = {};
+    data["id"] = id;
+    if (results != null)
+      data["results"] = results!.map((e) => e.toJson()).toList();
     return data;
   }
 }
 
 class Results {
- late String iso6391;
- late String iso31661;
- late String name;
- late String key;
- late String publishedAt;
- late String site;
- late int size;
- late String type;
- late bool official;
- late String id;
+  final String iso6391;
+  final String iso31661;
+  final String name;
+  final String key;
+  final String publishedAt;
+  final String site;
+  final int size;
+  final String type;
+  final bool official;
+  final String id;
 
-  Results(
-      { required this.iso6391,
-     required this.iso31661,
-     required this.name,
-    required  this.key,
-    required  this.publishedAt,
-    required  this.site,
-    required  this.size,
-    required  this.type,
-    required  this.official,
-    required  this.id});
+  Results({
+    required this.iso6391,
+    required this.iso31661,
+    required this.name,
+    required this.key,
+    required this.publishedAt,
+    required this.site,
+    required this.size,
+    required this.type,
+    required this.official,
+    required this.id,
+  });
 
-  Results.fromJson(Map<String, dynamic> json) {
-    if (json["iso_639_1"] is String) this.iso6391 = json["iso_639_1"];
-    if (json["iso_3166_1"] is String) this.iso31661 = json["iso_3166_1"];
-    if (json["name"] is String) this.name = json["name"];
-    if (json["key"] is String) this.key = json["key"];
-    if (json["published_at"] is String) this.publishedAt = json["published_at"];
-    if (json["site"] is String) this.site = json["site"];
-    if (json["size"] is int) this.size = json["size"];
-    if (json["type"] is String) this.type = json["type"];
-    if (json["official"] is bool) this.official = json["official"];
-    if (json["id"] is String) this.id = json["id"];
+  factory Results.fromJson(Map<String, dynamic> json) {
+    return Results(
+      iso6391: json["iso_639_1"],
+      iso31661: json["iso_3166_1"],
+      name: json["name"],
+      key: json["key"],
+      publishedAt: json["published_at"],
+      site: json["site"],
+      size: json["size"],
+      type: json["type"],
+      official: json["official"],
+      id: json["id"],
+    );
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data["iso_639_1"] = this.iso6391;
-    data["iso_3166_1"] = this.iso31661;
-    data["name"] = this.name;
-    data["key"] = this.key;
-    data["published_at"] = this.publishedAt;
-    data["site"] = this.site;
-    data["size"] = this.size;
-    data["type"] = this.type;
-    data["official"] = this.official;
-    data["id"] = this.id;
+    final Map<String, dynamic> data = {};
+    data["iso_639_1"] = iso6391;
+    data["iso_3166_1"] = iso31661;
+    data["name"] = name;
+    data["key"] = key;
+    data["published_at"] = publishedAt;
+    data["site"] = site;
+    data["size"] = size;
+    data["type"] = type;
+    data["official"] = official;
+    data["id"] = id;
     return data;
   }
 }

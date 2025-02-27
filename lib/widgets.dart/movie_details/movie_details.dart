@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie/Model/response.dart';
-import 'package:movie/views/animation/offset.dart';
+import 'package:mov/Model/response.dart';
+import 'package:mov/views/animation/offset.dart';
 import '../../view_model/homeBody.dart';
 import '../noDetailsCard.dart';
 import 'language.dart';
@@ -14,12 +14,12 @@ class MovieDetails extends StatelessWidget {
   final Movie movie;
   final HomeBodyVM? homeProvider;
   final bool containMostPopular;
-  MovieDetails(
-      {required this.movie,
-      this.containMostPopular = false,
-      this.homeProvider,
-      Key? key})
-      : super(key: key);
+  const MovieDetails({
+    required this.movie,
+    this.containMostPopular = false,
+    this.homeProvider,
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
@@ -33,7 +33,9 @@ class MovieDetails extends StatelessWidget {
             : MovieCover(movie: movie),
         Padding(
           padding: EdgeInsets.only(
-              top: screenWidth * .05, bottom: screenWidth * .05),
+            top: screenWidth * .05,
+            bottom: screenWidth * .05,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -44,34 +46,26 @@ class MovieDetails extends StatelessWidget {
                   AnimatedOffset(
                     begin: Offset(-1, 0),
                     end: Offset.zero,
-                    child: NoDetailsCard(
-                      movie,
-                    ),
+                    child: NoDetailsCard(movie),
                   ),
                   Expanded(
                     child: Column(
                       children: [
                         //language box//
                         Language(movie: movie),
-                        SizedBox(
-                          height: screenHeight * .02,
-                        ),
+                        SizedBox(height: screenHeight * .02),
 
                         //over view//
                         OverView(movie: movie),
-                        SizedBox(
-                          height: screenHeight * .01,
-                        ),
+                        SizedBox(height: screenHeight * .01),
 
                         //vote icon and number //
-                        VoteAndRate(
-                          movie: movie,
-                        )
+                        VoteAndRate(movie: movie),
                       ],
                     ),
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),

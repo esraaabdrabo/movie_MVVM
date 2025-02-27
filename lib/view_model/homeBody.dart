@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:movie/Model/response.dart';
-import 'package:movie/services/popular.dart';
-import 'package:movie/services/topRated.dart';
+import 'package:mov/Model/response.dart';
+import 'package:mov/services/popular.dart';
+import 'package:mov/services/topRated.dart';
 
 class HomeBodyVM extends ChangeNotifier {
   List<Movie?>? popular = [];
@@ -15,19 +15,19 @@ class HomeBodyVM extends ChangeNotifier {
     getTopRated();
   }
 
-  changeIsPopularLoading(bool value) {
+  void changeIsPopularLoading(bool value) {
     isPopularLoading = value;
     notifyListeners();
   }
 
-  changeIsTopRatedLoading(bool value) {
+  void changeIsTopRatedLoading(bool value) {
     isTopRatedLoading = value;
     notifyListeners();
   }
 
-  getPopular() async {
+  Future<void> getPopular() async {
     changeIsPopularLoading(true);
-    var res = await PopularSV.getPopularMovieList();
+    final res = await PopularSV.getPopularMovieList();
     if (res is List<Movie>?) {
       popular = res;
       mostPopular = popular![0];
@@ -37,17 +37,13 @@ class HomeBodyVM extends ChangeNotifier {
     changeIsPopularLoading(false);
   }
 
-  getTopRated() async {
+  Future<void> getTopRated() async {
     changeIsTopRatedLoading(true);
 
-    var res = await TopRatedSV.getTopRatedMovieList();
+    final res = await TopRatedSV.getTopRatedMovieList();
     if (res is List<Movie>?) {
       topRated = res;
     }
     changeIsTopRatedLoading(false);
-  }
-
-  String languageCompleteWord(String movieLanguage) {
-    return 'language : ${movieLanguage == 'es' ? 'spanish' : movieLanguage == 'en' ? 'english' : movieLanguage == 'hi' ? 'hindi' : movieLanguage == 'ar' ? 'arabic' : movieLanguage == 'fa' ? 'persian' : movieLanguage == 'fr' ? 'french' : movieLanguage} ';
   }
 }

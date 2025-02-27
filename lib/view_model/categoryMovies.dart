@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:movie/Model/response.dart';
-import 'package:movie/services/categoryMovies.dart';
+import 'package:mov/Model/response.dart';
+import 'package:mov/services/categoryMovies.dart';
 
 class CategoryMoviesVM extends ChangeNotifier {
   List<Movie>? categoryMovies = [];
@@ -10,15 +10,15 @@ class CategoryMoviesVM extends ChangeNotifier {
   CategoryMoviesVM(String name) {
     getCategoryMovies(name);
   }
-  changeIsLoading(bool value) {
+  void changeIsLoading(bool value) {
     isLoading = value;
     notifyListeners();
   }
 
-  getCategoryMovies(String name) async {
+  Future<void> getCategoryMovies(String name) async {
     changeIsLoading(true);
 
-    var res = await CategoryMoviesSV.getCategoryList(name);
+    final res = await CategoryMoviesSV.getCategoryList(name);
     if (res is List<Movie>?) {
       categoryMovies = res;
     } else {

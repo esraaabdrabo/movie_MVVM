@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:movie/services/constants.dart';
+import 'package:mov/services/constants.dart';
 import '../Model/response.dart';
 
 class WatchListSV {
@@ -11,38 +11,42 @@ class WatchListSV {
     watchListRef = FirebaseFirestore.instance
         .collection(SVconstants.watchListCollectionKey)
         .withConverter<Movie>(
-            fromFirestore: (snapshot, _) => Movie.fromJson(snapshot.data()!),
-            toFirestore: (movie, _) => movie.toJson());
+          fromFirestore: (snapshot, _) => Movie.fromJson(snapshot.data()!),
+          toFirestore: (movie, _) => movie.toJson(),
+        );
   }
 
   List<Movie>? getWatchListMovies() {
     List<Movie>? watchListMovies = [];
-    watchListRef!.get().then((document) {
-      document.docs.map((movie) => movie.data()).forEach((element) {
-        watchListMovies.add(element);
-      });
-    }).onError((error, stackTrace) {
-      throw error!;
-    });
+    watchListRef!
+        .get()
+        .then((document) {
+          document.docs.map((movie) => movie.data()).forEach((element) {
+            watchListMovies.add(element);
+          });
+        })
+        .onError((error, stackTrace) {
+          throw error!;
+        });
     return watchListMovies;
   }
 
-  bool addToWatchList(int id, Movie addedMovie) {
+  bool addToWatchList(Movie addedMovie) {
     watchListRef!
-        .doc(id.toString())
+        .doc(addedMovie.id.toString())
         .set(addedMovie)
         .then((value) => true)
         .onError((error, stackTrace) {
-      return false;
-    });
+          return false;
+        });
     return true;
   }
 
   Future<bool> removeFromWatchList(int id) async {
-    await watchListRef!
-        .doc(id.toString())
-        .delete()
-        .onError((error, stackTrace) {
+    await watchListRef!.doc(id.toString()).delete().onError((
+      error,
+      stackTrace,
+    ) {
       print(error.toString());
       return false;
     });

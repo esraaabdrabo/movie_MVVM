@@ -1,6 +1,6 @@
 abstract class ConstantsIMG {
-  static var baseImg = 'images';
-  static var categoryBGpath = '$baseImg/backgroundCtegory.png';
-  static var searchPath = '$baseImg/search.jpg';
-  static var notFoundPath = '$baseImg/searchNotFound.jpg';
+  static final baseImg = 'images';
+  static final categoryBGpath = '$baseImg/backgroundCtegory.png';
+  static final searchPath = '$baseImg/search.jpg';
+  static final notFoundPath = '$baseImg/searchNotFound.jpg';
 }

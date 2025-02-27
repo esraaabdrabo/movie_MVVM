@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie/Model/response.dart';
-import 'package:movie/services/watchList.dart';
+import 'package:mov/Model/response.dart';
+import 'package:mov/services/watchList.dart';
 
 class WatchListVM extends ChangeNotifier {
   List<Movie>? watchListMovies = [];
@@ -12,38 +12,38 @@ class WatchListVM extends ChangeNotifier {
     getMovies();
   }
 
-  changeIsLoading(bool value) {
+  void changeIsLoading(bool value) {
     isLoading = value;
     notifyListeners();
   }
 
-  getMovies() {
+  void getMovies() {
     changeIsLoading(true);
     watchListMovies = WatchListSV().getWatchListMovies();
     changeIsLoading(false);
   }
 
-  addToWatchList(int id, Movie addedMovie) {
-    if (isInWatchList(addedMovie.title)) {
-      removeFromWatchList(id);
+  void addToWatchList(Movie movie) {
+    if (isInWatchList(movie.id)) {
+      removeFromWatchList(movie);
     } else {
-      if (WatchListSV().addToWatchList(id, addedMovie)) {
-        watchListMovies!.add(addedMovie);
+      // TODO: -singleton (refactor)
+      if (WatchListSV().addToWatchList(movie)) {
+        watchListMovies!.add(movie);
       }
     }
     notifyListeners();
   }
 
-  removeFromWatchList(int id) async {
+  void removeFromWatchList(Movie movie) async {
     changeIsLoading(true);
-    if (await WatchListSV().removeFromWatchList(id)) {
-      watchListMovies!.removeWhere((element) => element.id == id);
+    if (await WatchListSV().removeFromWatchList(movie.id)) {
+      watchListMovies!.remove(movie);
     }
     changeIsLoading(false);
   }
 
-  bool isInWatchList(String title) {
-    return watchListMovies!.indexWhere((element) => element.title == title) >=
-        0;
+  bool isInWatchList(int id) {
+    return watchListMovies!.indexWhere((element) => element.id == id) >= 0;
   }
 }

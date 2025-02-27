@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:movie/Model/category.dart';
+import 'package:mov/Model/category.dart';
 
 import '../Model/response.dart';
 
@@ -9,7 +9,7 @@ class movieDataBaseApi {
     var response = await http.get(Uri.parse(link));
     if (response.statusCode == 200) {
       print('in 200 $link');
-      var moviesList = Response.fromJson(jsonDecode(response.body));
+      var moviesList = Movies.fromJson(jsonDecode(response.body));
 
       return moviesList.results;
     } else {

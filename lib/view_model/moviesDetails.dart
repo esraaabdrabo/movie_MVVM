@@ -1,4 +1,4 @@
-import 'package:movie/services/movieDetails.dart';
+import 'package:mov/services/movieDetails.dart';
 import '../Model/response.dart';
 import 'package:flutter/material.dart';
 
@@ -12,16 +12,15 @@ class MoviesDetailsVM extends ChangeNotifier {
   MoviesDetailsVM(int id) {
     getSimilar(id);
   }
-
-  changeIsLoading(bool value) {
+  void changeIsLoading(bool value) {
     isLoading = value;
     notifyListeners();
   }
 
-  getSimilar(int id) async {
+  Future<void> getSimilar(int id) async {
     changeIsLoading(true);
 
-    var res = await MovieDetailsSV.getSimilar(id);
+    final res = await MovieDetailsSV.getSimilar(id);
     if (res is List<Movie>?) {
       similar = res;
     } else {

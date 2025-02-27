@@ -1,15 +1,15 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:movie/Model/response.dart';
-import 'package:movie/services/constants.dart';
+import 'package:mov/Model/response.dart';
+import 'package:mov/services/constants.dart';
 
 class CategoryMoviesSV {
   static getCategoryList(String categoryName) async {
-    String link = '${SVconstants.categoryMoviesUrl}$categoryName';
+    final String url = '${SVconstants.categoryMoviesUrl}$categoryName';
 
-    var response = await http.get(Uri.parse(link));
+    final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
-      var categoryMoviesList = Response.fromJson(jsonDecode(response.body));
+      final categoryMoviesList = Movies.fromJson(jsonDecode(response.body));
       return categoryMoviesList.results;
     } else {
       return 'Failed To Reach Server';

@@ -7,17 +7,13 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:364945450438:android:d0fed57d13885284ebfec7",
+<<<<<<< HEAD
+        "mobilesdk_app_id": "1:364945450438:android:76641e92fa8eb9c0ebfec7",
         "android_client_info": {
-          "package_name": "com.example.movie"
+          "package_name": "com.MOV.firebase"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "364945450438-a68v5vpdeieaa8rr9nm50i19clr753o0.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyAl-jlkNEi_6pAJioFg8jRW-kkBTVmrgQ0"
@@ -27,8 +23,54 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
+              "client_id": "364945450438-t7qrcmtrf8tjv6h5g6e510h3bm5k1tsr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.movie"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+=======
+>>>>>>> origin/master
+        "mobilesdk_app_id": "1:364945450438:android:d0fed57d13885284ebfec7",
+        "android_client_info": {
+          "package_name": "com.example.movie"
+        }
+      },
+<<<<<<< HEAD
+      "oauth_client": [],
+=======
+      "oauth_client": [
+        {
+          "client_id": "364945450438-a68v5vpdeieaa8rr9nm50i19clr753o0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+>>>>>>> origin/master
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl-jlkNEi_6pAJioFg8jRW-kkBTVmrgQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+<<<<<<< HEAD
+              "client_id": "364945450438-t7qrcmtrf8tjv6h5g6e510h3bm5k1tsr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.movie"
+              }
+=======
               "client_id": "364945450438-a68v5vpdeieaa8rr9nm50i19clr753o0.apps.googleusercontent.com",
               "client_type": 3
+>>>>>>> origin/master
             }
           ]
         }
