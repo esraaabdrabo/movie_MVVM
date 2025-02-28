@@ -1,5 +1,5 @@
 import 'package:mov/services/movieDetails.dart';
-import '../Model/response.dart';
+import '../model/movies.dart';
 import 'package:flutter/material.dart';
 
 class MoviesDetailsVM extends ChangeNotifier {

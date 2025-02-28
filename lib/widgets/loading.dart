@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
-import '../myThemeData.dart';
+import 'package:mov/app_theme.dart';
 
 class Loading extends StatelessWidget {
-  const Loading({Key? key}) : super(key: key);
+  const Loading({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +19,11 @@ class Loading extends StatelessWidget {
             'WAIT .',
             style: TextStyle(color: Colors.white, fontSize: screenWidth * .1),
           ),
-          SizedBox(
-            height: screenHeight * .03,
-          ),
+          SizedBox(height: screenHeight * .03),
           SizedBox(
             height: screenHeight * .01,
             width: screenWidth * .6,
-            child: LinearProgressIndicator(color: MyThemeData.golden),
+            child: LinearProgressIndicator(color: AppTheme.golden),
           ),
         ],
       ),

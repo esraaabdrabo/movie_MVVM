@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mov/app_theme.dart';
+import 'package:mov/model/movies.dart';
 import 'package:mov/animation/offset.dart';
-
-import '../../model/movies.dart';
+import 'package:mov/app_theme.dart';
 
 class MovieTitleAndDate extends StatelessWidget {
   final Movie movie;

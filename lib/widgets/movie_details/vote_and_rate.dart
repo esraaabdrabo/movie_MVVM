@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mov/views/animation/offset.dart';
+import 'package:mov/app_theme.dart';
+import 'package:mov/animation/offset.dart';
 
-import '../../Model/response.dart';
-import '../../myThemeData.dart';
+import '../../model/movies.dart';
 
 class VoteAndRate extends StatelessWidget {
   final Movie movie;
@@ -20,15 +20,11 @@ class VoteAndRate extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Icon(
-              Icons.star,
-              color: MyThemeData.golden,
-              size: screenWidth * .04,
-            ),
+            Icon(Icons.star, color: AppTheme.golden, size: screenWidth * .04),
             SizedBox(width: screenWidth * .02),
             Text(
               '${movie.voteAverage.ceilToDouble()}',
-              style: TextStyle(color: MyThemeData.mediumGray, fontSize: 12),
+              style: TextStyle(color: AppTheme.mediumGray, fontSize: 12),
             ),
           ],
         ),

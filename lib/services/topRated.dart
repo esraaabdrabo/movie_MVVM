@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:mov/services/constants.dart';
 
-import '../Model/response.dart';
+import '../model/movies.dart';
 import 'package:http/http.dart' as http;
 
 class TopRatedSV {

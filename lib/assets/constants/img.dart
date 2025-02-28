@@ -1,6 +1,6 @@
 abstract class ConstantsIMG {
-  static final baseImg = 'images';
-  static final categoryBGpath = '$baseImg/backgroundCtegory.png';
-  static final searchPath = '$baseImg/search.jpg';
-  static final notFoundPath = '$baseImg/searchNotFound.jpg';
+  static final _baseImgPath = 'images';
+  static final categoryBGpath = '$_baseImgPath/backgroundCtegory.png';
+  static final searchPath = '$_baseImgPath/search.jpg';
+  static final notFoundPath = '$_baseImgPath/searchNotFound.jpg';
 }

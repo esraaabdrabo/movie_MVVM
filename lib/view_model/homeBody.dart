@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:mov/Model/response.dart';
+import 'package:mov/model/movies.dart';
 import 'package:mov/services/popular.dart';
 import 'package:mov/services/topRated.dart';
 

@@ -1,20 +1,20 @@
 import 'dart:convert';
-import 'package:mov/Model/category.dart';
+import 'package:mov/model/movie_category.dart';
 import 'package:http/http.dart' as http;
 import 'package:mov/services/constants.dart';
 
 class BrowseSV {
   static getCategories() async {
-    String categoriesURL = SVconstants.categoriesURL;
+    final String categoriesURL = SVconstants.categoriesURL;
 
-    final response = await http.get(Uri.parse(categoriesURL));
+    final http.Response response = await http.get(Uri.parse(categoriesURL));
 
     if (response.statusCode == 200) {
-      CategoryResponse categoriesList = CategoryResponse.fromJson(
+      final MoviesCategories categoriesList = MoviesCategories.fromJson(
         jsonDecode(response.body),
       );
 
-      return categoriesList.genres;
+      return categoriesList.data;
     } else {
       return 'Failed To Reach Server';
     }

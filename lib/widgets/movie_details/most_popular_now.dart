@@ -1,9 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:mov/Model/response.dart';
+import 'package:mov/model/movies.dart';
+import 'package:mov/app_theme.dart';
+import 'package:mov/text_styles.dart';
 import 'package:mov/widgets/movie_details/not_popular_cover.dart';
-import '../../myThemeData.dart';
 
 class MostPopularNow extends StatelessWidget {
   final Movie movie;
@@ -30,8 +31,8 @@ class MostPopularNow extends StatelessWidget {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      MyThemeData.golden.withAlpha(150),
-                      MyThemeData.accent.withAlpha(110),
+                      AppTheme.golden.withAlpha(150),
+                      AppTheme.accent.withAlpha(110),
                       Color.fromARGB(120, 255, 255, 255),
                     ],
                   ),

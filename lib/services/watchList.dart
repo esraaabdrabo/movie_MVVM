@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mov/services/constants.dart';
-import '../Model/response.dart';
+import '../model/movies.dart';
 
+// This feture must be offline, so we will use local storage to store the watchlist. (refactor)
 class WatchListSV {
   WatchListSV() {
     getRef();
@@ -43,11 +44,8 @@ class WatchListSV {
   }
 
   Future<bool> removeFromWatchList(int id) async {
-    await watchListRef!.doc(id.toString()).delete().onError((
-      error,
-      stackTrace,
-    ) {
-      print(error.toString());
+    // since there's no authentication for this app, we can just store the id in DB and remove it locally. Firebase will be used only if we have users and we need to sync data between devices.
+    await watchListRef!.doc(id.toString()).delete().onError((_, __) {
       return false;
     });
     return true;

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:mov/Model/response.dart';
+import 'package:mov/model/movies.dart';
+import 'package:mov/app_theme.dart';
 import 'package:mov/assets/functions.dart';
-import 'package:mov/myThemeData.dart';
-import 'package:mov/views/movie_details.dart';
-import 'package:mov/widgets/detailsCard.dart';
-import '../views/animation/offset.dart';
+
+import 'package:mov/screens/movie_details_screen.dart';
+import 'package:mov/widgets/movie_details_card.dart';
+import '../animation/offset.dart';
 
 class SearchResults extends StatefulWidget {
   final List<Movie>? movieList;
@@ -18,16 +19,15 @@ class SearchResults extends StatefulWidget {
 class _SearchResultsState extends State<SearchResults> {
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
 
     return SizedBox(
       height: screenHeight,
       width: screenWidth,
       child: ListView.separated(
         separatorBuilder:
-            (context, index) =>
-                Divider(color: MyThemeData.accent, thickness: 1),
+            (context, index) => Divider(color: AppTheme.accent, thickness: 1),
         physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) {
           return AnimatedOffset(
@@ -70,7 +70,7 @@ class _SearchResultsState extends State<SearchResults> {
                             widget.movieList![index].title,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: MyThemeData.white60,
+                              color: AppTheme.white60,
                               fontSize: 12,
                             ),
                           ),
@@ -81,7 +81,7 @@ class _SearchResultsState extends State<SearchResults> {
                         Text(
                           widget.movieList![index].releaseDate,
                           style: TextStyle(
-                            color: MyThemeData.white60,
+                            color: AppTheme.white60,
                             fontSize: 12,
                           ),
                         ),
@@ -91,7 +91,7 @@ class _SearchResultsState extends State<SearchResults> {
                               ? 'adult only'
                               : 'watch with family',
                           style: TextStyle(
-                            color: MyThemeData.white60,
+                            color: AppTheme.white60,
                             fontSize: 12,
                           ),
                         ),

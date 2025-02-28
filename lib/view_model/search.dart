@@ -1,26 +1,26 @@
 import 'package:flutter/cupertino.dart';
-import 'package:mov/Model/response.dart';
+import 'package:mov/model/movies.dart';
 import 'package:mov/services/search.dart';
 
 class SearchVM extends ChangeNotifier {
-  List<Movie>? searchedMovies = [];
+  List<Movie> searchedMovies = [];
   bool isLoading = false;
-  String errorMess = '';
+  String errorMessage = '';
   bool isSearchUsed = false;
 
-  changeIsLoading(bool value) {
+  void changeIsLoading(bool value) {
     isLoading = value;
     notifyListeners();
   }
 
-  getSearchedMovies(String name) async {
+  Future<void> getSearchedMovies(String name) async {
     changeIsLoading(true);
 
     final res = await SearchSV.getSearchedMovie(name);
-    if (res is List<Movie>?) {
+    if (res is List<Movie>) {
       searchedMovies = res;
     } else {
-      errorMess = res;
+      errorMessage = res;
     }
     isSearchUsed = true;
     changeIsLoading(false);

@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:mov/services/browse.dart';
-import '../Model/category.dart';
+import '../model/movie_category.dart';
 
 class BrowseVM extends ChangeNotifier {
-  List<Category>? categories = [];
+  List<MovieCategory>? categories = [];
   bool isLoading = false;
   String errorMess = '';
 
@@ -19,7 +19,8 @@ class BrowseVM extends ChangeNotifier {
     changeIsLoading(true);
 
     final res = await BrowseSV.getCategories();
-    if (res is List<Category>?) {
+    // we can use record here or Either.
+    if (res is List<MovieCategory>?) {
       categories = res;
     } else {
       errorMess = res;

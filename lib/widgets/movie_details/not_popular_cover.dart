@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mov/widgets/cached_img.dart';
 
-import '../../Model/response.dart';
+import '../../model/movies.dart';
 
 class MovieCover extends StatelessWidget {
   final Movie movie;

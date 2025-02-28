@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:mov/Model/response.dart';
-import 'package:mov/views/animation/offset.dart';
-import 'package:mov/widgets/detailsCard.dart';
+import 'package:mov/model/movies.dart';
+import 'package:mov/animation/offset.dart';
+import 'package:mov/widgets/movie_details/movie_original_language.dart';
+import 'package:mov/widgets/movie_details/movie_over_view.dart';
+import 'package:mov/widgets/movie_details/movie_title_and_date.dart';
+import 'package:mov/widgets/movie_details_card.dart';
 import '../../view_model/homeBody.dart';
-import 'language.dart';
 import 'most_popular_now.dart';
 import 'not_popular_cover.dart';
-import 'overview.dart';
-import 'title_and_date.dart';
+
 import 'vote_and_rate.dart';
 
 class MovieDetails extends StatelessWidget {
@@ -39,7 +40,7 @@ class MovieDetails extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              TitleAndDate(movie: movie),
+              MovieTitleAndDate(movie: movie),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
